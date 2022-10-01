@@ -44,7 +44,7 @@ app.get('/', async (req, res) => {
 		console.log("Connection KO : ", err);
 		setTimeout(() => { run(); }, 2000); // relance 2s après
 	  }
-	res.send('NodeJS OK, Database MongoDB '+statut)
+	res.send('NodeJS OK et Database MongoDB '+statut)
 	res.end()
 })
 
