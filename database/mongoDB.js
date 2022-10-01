@@ -4,6 +4,7 @@ const MongoClient = mongodb.MongoClient
 const uri = process.env.MONGODB_URI
 const client = new MongoClient(uri)
 const db = client.db(DATABASE)
+const express = require('express')
 
 async function run() {
     try {
@@ -18,4 +19,4 @@ async function run() {
   }
 run();
 
-module.exports = {db, mongodb};
+module.exports = {express, db, mongodb};

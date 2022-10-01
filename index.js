@@ -31,6 +31,12 @@ const client = new MongoClient(uri)
 const db = client.db(DATABASE)
 var statut = 'N/A'
 
+const collectionsRoutes = require('./routes/api/collectionsController')
+app.use('/api/collections', collectionsRoutes)
+
+const customersRoutes = require('./routes/api/customersController')
+app.use('/api/customers', customersRoutes)
+
 // Handling GET request
 app.get('/', async (req, res) => {
 	try {
@@ -53,6 +59,10 @@ app.get('/home', async (req, res) => {
 	res.send('HOME');
 	res.end();
 });
+
+
+
+
 
 // Port Number
 const PORT = process.env.PORT ||5000;
