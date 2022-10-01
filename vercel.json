@@ -8,6 +8,10 @@
     ],
     "routes": [
         {
+            "src": "/",
+            "dest": "index.js"
+        },
+        {
             "src": "/api/customers",
             "dest": "/routes/api/customersController.js"
         },
