@@ -10,6 +10,14 @@
         {
             "src": "/(.*)",
             "dest": "/"
+        },
+        {
+            "src": "/api/customers",
+            "dest": "/routes/api/customersController.js"
+        },
+        {
+            "src": "/api/collections",
+            "dest": "/routes/api/collectionsController.js"
         }
     ]
 }
