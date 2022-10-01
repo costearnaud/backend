@@ -48,6 +48,12 @@ app.get('/', async (req, res) => {
 	res.end()
 })
 
+// Handling GET request
+app.get('/home', async (req, res) => {
+	res.send('HOME');
+	res.end();
+});
+
 // Port Number
 const PORT = process.env.PORT ||5000;
 
