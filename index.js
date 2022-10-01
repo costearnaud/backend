@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: true}))
 
-//const { db, mongodb } = require ('./database/mongoDB');
+const { db, client } = require ('./database/mongoDB');
 /*
 const collection = 'Customers';
 var nb = 0;
@@ -23,12 +23,6 @@ customers.countDocuments().then( (count) => {
 	nb = count;
 });
 */
-const DATABASE = 'DreamDb'
-const mongodb = require('mongodb')
-const MongoClient = mongodb.MongoClient
-const uri = process.env.MONGODB_URI
-const client = new MongoClient(uri)
-const db = client.db(DATABASE)
 var statut = 'N/A'
 
 const collectionsRoutes = require('./routes/api/collectionsController')
@@ -60,9 +54,14 @@ app.get('/home', async (req, res) => {
 	res.end();
 });
 
+// Handle production
+if (process.env.NODE_ENV === 'production') {
+	// Static folder
+	app.use(express.static(__dirname + '/public/'));
 
-
-
+	// Handle SPA
+	app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+}
 
 // Port Number
 const PORT = process.env.PORT ||5000;

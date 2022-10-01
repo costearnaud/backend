@@ -19,4 +19,4 @@ async function run() {
   }
 run();
 
-module.exports = {express, db, mongodb};
+module.exports = {express, client, db, mongodb};
